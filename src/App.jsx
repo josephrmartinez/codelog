@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import format from 'date-fns/format'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -20,48 +21,42 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize Cloud Firestore and get a reference to the service
+// Initialize Cloud Firestore and get a reference to the service and log collection
 const db = getFirestore(app);
-
-
-// function addCollection() {
-//   JSONdata.forEach(element => addDocument(element))
-// }
-
-
-// async function addDocument(element) {
-//   await addDoc(collection(db, "log"), {
-//     date: new Date(element.date),
-//     hours: element.hours,
-//     notes: element.notes
-// })
-// .then(() => {
-//     console.log("Document successfully written!");
-// })
-// .catch((error) => {
-//     console.error("Error writing document: ", error);
-// });
-// }
-
-
-// const codelog = await getDocs(collection(db, "log"));
-// codelog.forEach((doc) => {
-//   console.log(doc.data())
-// })
-
-// const ten = await getDocs(query(collection(db, "log")
-//   .orderBy("date")
-//   .limit(10)))
-
-
-
 const logRef = collection(db, "log")
 
-const q = query(logRef, orderBy("date", "desc"), limit(10))
+const q = query(logRef, orderBy("date", "desc"), limit(76))
 const qSnapshot = await getDocs(q)
+
+let logItems = []
+
+
 qSnapshot.forEach((doc) => {
-  console.log(doc.data())
+  logItems.unshift(doc.data())
 })
+
+
+const log = logItems.map((each, index) => {
+  
+  let op;
+  if (each.hours < 1) {
+    op = 50;
+  } else if (each.hours >= 1 && each.hours <= 1.5) {
+    op = 80;
+  } else if (each.hours > 1.5 && each.hours <= 2) {
+    op = 90;
+  } else {
+    op = 100;
+  }
+  return (
+    <div key={index}
+      className={`opacity-${op} bg-gradient-to-br from-green-500 to-green-800 rounded-md shadow-lg`}
+      onClick={() => console.log(format((new Date(each.date.seconds * 1000)), 'EEEE, MMMM do'))}
+      title={format((new Date(each.date.seconds * 1000)), 'EEEE, MMMM do')}>{each.hours}</div>
+    )
+  })
+
+
 
 function click() {
   console.log(q.data())
@@ -84,9 +79,20 @@ function App() {
     <>
       <div>You have been coding for {totalCount} days!</div>
       
-      <button className='btn ' onClick={click}>click me</button>
+      <div className='flex flex-col items-center'>
+      <div className='grid grid-cols-7 grid-rows-[repeat(11,_minmax(0,_1fr))] grid-flow-row w-80 h-[32rem] gap-2'>
+          {log}
+          <div
+      className={`opacity-10 cursor-pointer bg-gradient-to-br from-green-500 to-green-800 rounded-md shadow-lg`}
+      >+</div>
+      
 
-      <div className='flex flex-col items-center border border-gray-200'>
+      </div>
+
+      </div>      
+      {/* <button className='btn ' onClick={click}>click me</button> */}
+
+      {/* <div className='flex flex-col items-center border border-gray-200'>
         <label htmlFor="date">date</label>
         <input type="date" name="date" id="date" className='border'/>
         <label htmlFor="hours">hours</label>
@@ -94,8 +100,7 @@ function App() {
         <label htmlFor="notes">notes</label>
         <input type="text" name="" id="" className='border'/>
         <button className='outline rounded-full py-3 px-5 my-5'>log entry</button>
-
-      </div>
+      </div> */}
     </>
   )
 }
