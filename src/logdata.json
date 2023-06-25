@@ -1,0 +1,1537 @@
+[
+  {
+    "date": "2022-08-20",
+    "hours": 1.75,
+    "notes": "FreeCodeCamp html tutorial, half of CSS tutorial"
+  },
+  {
+    "date": "2022-08-21",
+    "hours": 5,
+    "notes": "Spent 2 hours building learning log in anvil."
+  },
+  {
+    "date": "Spent 3 hours on FCC curriculum: CSS",
+    "hours": "",
+    "notes": ""
+  },
+  {
+    "date": "2022-08-22",
+    "hours": 2,
+    "notes": "FCC: CSS project, Flexbox, and Box Model"
+  },
+  {
+    "date": "2022-08-23",
+    "hours": 1,
+    "notes": "FCC: HTML, CSS"
+  },
+  {
+    "date": "2022-08-24",
+    "hours": 3,
+    "notes": "FCC: HTML, CSS"
+  },
+  {
+    "date": "2022-08-25",
+    "hours": 2,
+    "notes": "FCC: HTML, CSS"
+  },
+  {
+    "date": "2022-08-26",
+    "hours": 2,
+    "notes": "FCC: HTML, CSS"
+  },
+  {
+    "date": "2022-08-27",
+    "hours": 3,
+    "notes": "FCC: HTML, CSS"
+  },
+  {
+    "date": "2022-08-28",
+    "hours": 4,
+    "notes": "FCC: HTML, CSS. Completed product landing page project."
+  },
+  {
+    "date": "2022-08-29",
+    "hours": 3,
+    "notes": "Started personal portfolio project for FCC"
+  },
+  {
+    "date": "2022-08-30",
+    "hours": 1,
+    "notes": "Git, GitHub setup. Personal website"
+  },
+  {
+    "date": "2022-08-31",
+    "hours": 1,
+    "notes": "Personal portfolio website"
+  },
+  {
+    "date": "2022-09-01",
+    "hours": 1,
+    "notes": "Personal portfolio website"
+  },
+  {
+    "date": "2022-09-02",
+    "hours": 2,
+    "notes": "Personal portfolio website"
+  },
+  {
+    "date": "2022-09-03",
+    "hours": 4,
+    "notes": "Finished FCC web cert. Published draft of personal website. Started Javascript course."
+  },
+  {
+    "date": "2022-09-04",
+    "hours": 5,
+    "notes": "Basic Javascript. Need to review recursion."
+  },
+  {
+    "date": "2022-09-05",
+    "hours": 0.5,
+    "notes": "FCC javascript ES6"
+  },
+  {
+    "date": "2022-09-06",
+    "hours": 2,
+    "notes": "FCC JS ES6; switched into The Odin Project"
+  },
+  {
+    "date": "2022-09-07",
+    "hours": 0.5,
+    "notes": "Database configuration"
+  },
+  {
+    "date": "2022-09-08",
+    "hours": 4,
+    "notes": "Data structures, Anvil, NVC apps"
+  },
+  {
+    "date": "2022-09-09",
+    "hours": 1,
+    "notes": "Odin foundations"
+  },
+  {
+    "date": "2022-09-10",
+    "hours": 5,
+    "notes": "Odin project fundamentals"
+  },
+  {
+    "date": "2022-09-11",
+    "hours": 3,
+    "notes": "Odin project fundamentals"
+  },
+  {
+    "date": "2022-09-12",
+    "hours": 1,
+    "notes": "Odin TDD"
+  },
+  {
+    "date": "2022-09-13",
+    "hours": 2,
+    "notes": "Odin Project: TDD tests"
+  },
+  {
+    "date": "2022-09-14",
+    "hours": 2,
+    "notes": "Odin: DOM"
+  },
+  {
+    "date": "2022-09-15",
+    "hours": 3,
+    "notes": "Odin: DOM, event listeners"
+  },
+  {
+    "date": "2022-09-16",
+    "hours": 2,
+    "notes": "Odin: rock, paper, scissors game UI"
+  },
+  {
+    "date": "2022-09-17",
+    "hours": 1,
+    "notes": "Odin: sketch project"
+  },
+  {
+    "date": "2022-09-18",
+    "hours": 3,
+    "notes": "Odin: finish sketch project"
+  },
+  {
+    "date": "2022-09-19",
+    "hours": 1,
+    "notes": "Array methods"
+  },
+  {
+    "date": "2022-09-20",
+    "hours": 2,
+    "notes": "Odin array methods"
+  },
+  {
+    "date": "2022-09-21",
+    "hours": 1,
+    "notes": "Array methods"
+  },
+  {
+    "date": "2022-09-22",
+    "hours": 2,
+    "notes": "Odin calculator project"
+  },
+  {
+    "date": "2022-09-23",
+    "hours": 1.5,
+    "notes": "Odin calculator project"
+  },
+  {
+    "date": "2022-09-24",
+    "hours": 2,
+    "notes": "Finished Odin fundamentals section"
+  },
+  {
+    "date": "2022-09-25",
+    "hours": 4,
+    "notes": "Odin: intermediate html and css"
+  },
+  {
+    "date": "2022-09-26",
+    "hours": 2,
+    "notes": "NVC app development"
+  },
+  {
+    "date": "2022-09-27",
+    "hours": 0.5,
+    "notes": "Odin css position"
+  },
+  {
+    "date": "2022-09-28",
+    "hours": 1,
+    "notes": "Odin CSS"
+  },
+  {
+    "date": "2022-09-29",
+    "hours": 1,
+    "notes": "Odin CSS frameworks and preprocessors"
+  },
+  {
+    "date": "2022-09-30",
+    "hours": 2.5,
+    "notes": "Odin: form project"
+  },
+  {
+    "date": "2022-10-01",
+    "hours": 4,
+    "notes": "Odin: CSS Grid"
+  },
+  {
+    "date": "2022-10-02",
+    "hours": 0.5,
+    "notes": "Odin: CSS grid"
+  },
+  {
+    "date": "2022-10-03",
+    "hours": 1.5,
+    "notes": "Odin: CSS grid practice"
+  },
+  {
+    "date": "2022-10-04",
+    "hours": 0.5,
+    "notes": "Personal site CSS update"
+  },
+  {
+    "date": "2022-10-05",
+    "hours": 1.5,
+    "notes": "Update personal site with CSS Grid"
+  },
+  {
+    "date": "2022-10-06",
+    "hours": 2,
+    "notes": "Read JS book"
+  },
+  {
+    "date": "2022-10-07",
+    "hours": 0.5,
+    "notes": "JS review"
+  },
+  {
+    "date": "2022-10-08",
+    "hours": 0.5,
+    "notes": "JS reading"
+  },
+  {
+    "date": "2022-10-09",
+    "hours": 2,
+    "notes": "JS reading"
+  },
+  {
+    "date": "2022-10-11",
+    "hours": 1,
+    "notes": "Figma tutorial"
+  },
+  {
+    "date": "2022-10-12",
+    "hours": 2,
+    "notes": "Figma mockup for empathy app"
+  },
+  {
+    "date": "2022-10-13",
+    "hours": 2,
+    "notes": "Figma mockup for empathy app"
+  },
+  {
+    "date": "2022-10-14",
+    "hours": 0.5,
+    "notes": "JS tutorial"
+  },
+  {
+    "date": "2022-10-15",
+    "hours": 3,
+    "notes": "Odin: library project"
+  },
+  {
+    "date": "2022-10-16",
+    "hours": 3,
+    "notes": "Finished odin library project"
+  },
+  {
+    "date": "2022-10-17",
+    "hours": 1,
+    "notes": "Work on self empathy app project. JS review"
+  },
+  {
+    "date": "2022-10-18",
+    "hours": 1,
+    "notes": "Frontendmasters course, exercism exercise"
+  },
+  {
+    "date": "2022-10-19",
+    "hours": 1,
+    "notes": "FEFS video course"
+  },
+  {
+    "date": "2022-10-20",
+    "hours": 1,
+    "notes": "JS exercism"
+  },
+  {
+    "date": "2022-10-21",
+    "hours": 2,
+    "notes": "JS exercism, FEM Databases course"
+  },
+  {
+    "date": "2022-10-22",
+    "hours": 2,
+    "notes": "Exercism, FEM video, back to Odin"
+  },
+  {
+    "date": "2022-10-23",
+    "hours": 2,
+    "notes": "Odin: factory functions"
+  },
+  {
+    "date": "2022-10-24",
+    "hours": 1,
+    "notes": "Exercism objects and null/undefined"
+  },
+  {
+    "date": "2022-10-25",
+    "hours": 1,
+    "notes": "Exercism type conversion"
+  },
+  {
+    "date": "2022-10-26",
+    "hours": 1,
+    "notes": "Exercism: functions"
+  },
+  {
+    "date": "2022-10-28",
+    "hours": 1,
+    "notes": "Exercism javascript review"
+  },
+  {
+    "date": "2022-10-27",
+    "hours": 1,
+    "notes": "Exercism: javascript review"
+  },
+  {
+    "date": "2022-10-29",
+    "hours": 1,
+    "notes": "Exercism: js review"
+  },
+  {
+    "date": "2022-10-30",
+    "hours": 2,
+    "notes": "Odin: tic tac toe project"
+  },
+  {
+    "date": "2022-10-31",
+    "hours": 1,
+    "notes": "Tic tac toe tutorial"
+  },
+  {
+    "date": "2022-11-01",
+    "hours": 1,
+    "notes": "Odin factory functions"
+  },
+  {
+    "date": "2022-11-02",
+    "hours": 1,
+    "notes": "Exercism array methods and loops"
+  },
+  {
+    "date": "2022-11-03",
+    "hours": 1,
+    "notes": "Exercism js review"
+  },
+  {
+    "date": "2022-11-04",
+    "hours": 1,
+    "notes": "Odin tic tac toe project"
+  },
+  {
+    "date": "2022-11-05",
+    "hours": 2,
+    "notes": "Finished tic tac toe project OOP"
+  },
+  {
+    "date": "2022-11-06",
+    "hours": 2,
+    "notes": "Webpack"
+  },
+  {
+    "date": "2022-11-07",
+    "hours": 1,
+    "notes": "Webpack"
+  },
+  {
+    "date": "2022-11-08",
+    "hours": 1,
+    "notes": "empathy app as odin project"
+  },
+  {
+    "date": "2022-11-09",
+    "hours": 2,
+    "notes": "empathy app modules, webpack"
+  },
+  {
+    "date": "2022-11-10",
+    "hours": 1,
+    "notes": "Empathy app modules, webpack"
+  },
+  {
+    "date": "2022-11-11",
+    "hours": 2,
+    "notes": "Empathy app, modules, webpack"
+  },
+  {
+    "date": "2022-11-12",
+    "hours": 1,
+    "notes": "Empathy app, modules, webpack"
+  },
+  {
+    "date": "2022-11-13",
+    "hours": 1,
+    "notes": "Deployed selfempathy.app !"
+  },
+  {
+    "date": "2022-11-14",
+    "hours": 1,
+    "notes": "Selfempathy.app updates"
+  },
+  {
+    "date": "2022-11-15",
+    "hours": 1,
+    "notes": "OOP SOLID principles"
+  },
+  {
+    "date": "2022-11-16",
+    "hours": 0.5,
+    "notes": "Empathy app updates"
+  },
+  {
+    "date": "2022-11-18",
+    "hours": 0.5,
+    "notes": "JSON"
+  },
+  {
+    "date": "2022-11-17",
+    "hours": 0.5,
+    "notes": "Design brief"
+  },
+  {
+    "date": "2022-11-19",
+    "hours": 0.5,
+    "notes": "Webpack"
+  },
+  {
+    "date": "2022-11-20",
+    "hours": 1,
+    "notes": "Initial commit ideas app"
+  },
+  {
+    "date": "2022-11-21",
+    "hours": 1,
+    "notes": "CSS for idealist app"
+  },
+  {
+    "date": "2022-11-22",
+    "hours": 1.5,
+    "notes": "Functional programming approach for idealist app"
+  },
+  {
+    "date": "2022-11-23",
+    "hours": 1.5,
+    "notes": "Refactor idealist app OOP modules"
+  },
+  {
+    "date": "2022-11-24",
+    "hours": 1,
+    "notes": "Idealist OOP"
+  },
+  {
+    "date": "2022-11-25",
+    "hours": 1,
+    "notes": "Reading code, searching for help"
+  },
+  {
+    "date": "2022-11-26",
+    "hours": 1,
+    "notes": "Todo list project research"
+  },
+  {
+    "date": "2022-11-27",
+    "hours": 1.5,
+    "notes": "Todo list project research. Followed youtube tutorial that did not use SOLID. No modules"
+  },
+  {
+    "date": "2022-11-28",
+    "hours": 1,
+    "notes": "Eslint, prettier, finished todo list tutorial"
+  },
+  {
+    "date": "2022-11-30",
+    "hours": 1,
+    "notes": "CSS animations and transformations"
+  },
+  {
+    "date": "2022-11-30",
+    "hours": 1,
+    "notes": "Dynamic user interfaces"
+  },
+  {
+    "date": "2022-12-01",
+    "hours": 1,
+    "notes": "html, css, js image carousel. Data active setting"
+  },
+  {
+    "date": "2022-12-02",
+    "hours": 1,
+    "notes": "Image carousel add feature"
+  },
+  {
+    "date": "2022-12-03",
+    "hours": 1,
+    "notes": "Form validation. Fix bugs in library project"
+  },
+  {
+    "date": "2022-12-05",
+    "hours": 2,
+    "notes": "JSON, google sheets to JSON"
+  },
+  {
+    "date": "2022-12-06",
+    "hours": 1,
+    "notes": "JSON"
+  },
+  {
+    "date": "2022-12-07",
+    "hours": 1,
+    "notes": "Self empathy app update to utilize json"
+  },
+  {
+    "date": "2022-12-08",
+    "hours": 1,
+    "notes": "Slider tutorial"
+  },
+  {
+    "date": "2022-12-09",
+    "hours": 1,
+    "notes": "Slider tutorial finished."
+  },
+  {
+    "date": "2022-12-10",
+    "hours": 1,
+    "notes": "Refactoring slider module"
+  },
+  {
+    "date": "2022-12-11",
+    "hours": 1,
+    "notes": "Selfempathy.app slider updates"
+  },
+  {
+    "date": "2022-12-12",
+    "hours": 2,
+    "notes": "Troubleshoot errors on slider module. Fixed."
+  },
+  {
+    "date": "2022-12-13",
+    "hours": 2,
+    "notes": "Empathyapp slider updates. JS modules, css"
+  },
+  {
+    "date": "2022-12-14",
+    "hours": 1,
+    "notes": "Fixed bugs, pushed selfempathy.app live"
+  },
+  {
+    "date": "2022-12-15",
+    "hours": 1,
+    "notes": "Callbacks, promises"
+  },
+  {
+    "date": "2022-12-16",
+    "hours": 1,
+    "notes": "Promises, call stack, event loop"
+  },
+  {
+    "date": "2022-12-17",
+    "hours": 1,
+    "notes": "Promises, API intro"
+  },
+  {
+    "date": "2022-12-18",
+    "hours": 2,
+    "notes": "APIs"
+  },
+  {
+    "date": "2022-12-19",
+    "hours": 1,
+    "notes": "Update weather app"
+  },
+  {
+    "date": "2022-12-21",
+    "hours": 1,
+    "notes": "Recursion"
+  },
+  {
+    "date": "2022-12-21",
+    "hours": 2,
+    "notes": "Data structures and algorithms"
+  },
+  {
+    "date": "2022-12-22",
+    "hours": 2,
+    "notes": "Testing, TDD"
+  },
+  {
+    "date": "2022-12-23",
+    "hours": 2,
+    "notes": "Selfempathy.app updates. Design, JS, git"
+  },
+  {
+    "date": "2022-12-24",
+    "hours": 1,
+    "notes": "Selfempathy.app update. JS, git"
+  },
+  {
+    "date": "2022-12-25",
+    "hours": 1,
+    "notes": "Git"
+  },
+  {
+    "date": "2022-12-26",
+    "hours": 1,
+    "notes": "Git"
+  },
+  {
+    "date": "2022-12-27",
+    "hours": 2,
+    "notes": "React intro"
+  },
+  {
+    "date": "2022-12-28",
+    "hours": 2,
+    "notes": "React intro"
+  },
+  {
+    "date": "2022-12-29",
+    "hours": 1,
+    "notes": "React tutorial"
+  },
+  {
+    "date": "2022-12-30",
+    "hours": 2.5,
+    "notes": "React props and state"
+  },
+  {
+    "date": "2022-12-31",
+    "hours": 1,
+    "notes": "Figma design, React"
+  },
+  {
+    "date": "2023-01-01",
+    "hours": 1.5,
+    "notes": "React"
+  },
+  {
+    "date": "2023-01-02",
+    "hours": 1,
+    "notes": "Scrimba UI course"
+  },
+  {
+    "date": "2023-01-10",
+    "hours": 0.5,
+    "notes": "React component organization"
+  },
+  {
+    "date": "2023-01-04",
+    "hours": 1,
+    "notes": "React conponent design, CSS"
+  },
+  {
+    "date": "2023-01-05",
+    "hours": 0.5,
+    "notes": "React components props"
+  },
+  {
+    "date": "2023-01-06",
+    "hours": 1,
+    "notes": "React tutorial scrimba"
+  },
+  {
+    "date": "2023-01-07",
+    "hours": 3,
+    "notes": "Scrimba react course"
+  },
+  {
+    "date": "2023-01-08",
+    "hours": 1.5,
+    "notes": "Refactor self-empathy site to react. Just static pages."
+  },
+  {
+    "date": "2023-01-09",
+    "hours": 1,
+    "notes": "React scrimba"
+  },
+  {
+    "date": "2023-01-10",
+    "hours": 1,
+    "notes": "React scrimba and call with mike programmer"
+  },
+  {
+    "date": "2023-01-11",
+    "hours": 1,
+    "notes": "React scrimba"
+  },
+  {
+    "date": "2023-01-12",
+    "hours": 1,
+    "notes": "React scrimba"
+  },
+  {
+    "date": "2023-01-13",
+    "hours": 1,
+    "notes": "React scrimba"
+  },
+  {
+    "date": "2023-01-14",
+    "hours": 2,
+    "notes": "React scrimba"
+  },
+  {
+    "date": "2023-01-15",
+    "hours": 2,
+    "notes": "React scrimba"
+  },
+  {
+    "date": "2023-01-16",
+    "hours": 2,
+    "notes": "React scrimba"
+  },
+  {
+    "date": "2023-01-18",
+    "hours": 1,
+    "notes": "Finished react scrimba into course. Setup on final solo project"
+  },
+  {
+    "date": "2023-01-18",
+    "hours": 3,
+    "notes": "React scrimba intro course final solo project"
+  },
+  {
+    "date": "2023-01-19",
+    "hours": 2,
+    "notes": "Scrimba react solo project. Design work on doValues"
+  },
+  {
+    "date": "2023-01-20",
+    "hours": 2,
+    "notes": "React quiz project, doValues design"
+  },
+  {
+    "date": "2023-01-21",
+    "hours": 2,
+    "notes": "doValues config react gh pages"
+  },
+  {
+    "date": "2023-01-22",
+    "hours": 3,
+    "notes": "React doValues development. Static layout with props, just starting to refactor with state"
+  },
+  {
+    "date": "2023-01-23",
+    "hours": 1,
+    "notes": "Add delete functionality to doValues app"
+  },
+  {
+    "date": "2023-01-24",
+    "hours": 1,
+    "notes": "React doValues. Add conditional component rendering"
+  },
+  {
+    "date": "2023-01-25",
+    "hours": 3,
+    "notes": "React doValues minimal functionality finished"
+  },
+  {
+    "date": "2023-01-26",
+    "hours": 2,
+    "notes": "React doValues add react-select component from library. Update styling."
+  },
+  {
+    "date": "2023-01-27",
+    "hours": 1,
+    "notes": "doValues finished and deployed!"
+  },
+  {
+    "date": "2023-01-28",
+    "hours": 2,
+    "notes": "Advanced react scrimba course. Figma design for reactions journal"
+  },
+  {
+    "date": "2023-01-29",
+    "hours": 1,
+    "notes": "Reactions journal development"
+  },
+  {
+    "date": "2023-01-30",
+    "hours": 1,
+    "notes": "Reactions journal development"
+  },
+  {
+    "date": "2023-01-31",
+    "hours": 1,
+    "notes": "Reactions journal development"
+  },
+  {
+    "date": "2023-02-01",
+    "hours": 2,
+    "notes": "React custom hook, multi page form, reactions journal project"
+  },
+  {
+    "date": "2023-02-02",
+    "hours": 1,
+    "notes": "Tailwind CSS intro. Started video tutorial, found docs to be much better"
+  },
+  {
+    "date": "2023-02-03",
+    "hours": 2,
+    "notes": "Redesign reactions journal"
+  },
+  {
+    "date": "2023-02-04",
+    "hours": 1,
+    "notes": "React vite tailwind gh-pages config"
+  },
+  {
+    "date": "2023-02-05",
+    "hours": 2,
+    "notes": "Tailwind, react router"
+  },
+  {
+    "date": "2023-02-06",
+    "hours": 1,
+    "notes": "Tailwind, router"
+  },
+  {
+    "date": "2023-02-07",
+    "hours": 2,
+    "notes": "Tailwind style updates to reactions journal"
+  },
+  {
+    "date": "2023-02-08",
+    "hours": 2,
+    "notes": "Tailwind style updates to reactions journal"
+  },
+  {
+    "date": "2023-02-09",
+    "hours": 1,
+    "notes": "Reactions journal development"
+  },
+  {
+    "date": "2023-02-10",
+    "hours": 1,
+    "notes": "Router, custom form two way data bindings, tailwind conditional styling"
+  },
+  {
+    "date": "2023-02-11",
+    "hours": 1,
+    "notes": "Reactions journal. Date object methods, date picker conponent"
+  },
+  {
+    "date": "2023-02-12",
+    "hours": 1,
+    "notes": "Reactions journal development"
+  },
+  {
+    "date": "2023-02-13",
+    "hours": 2,
+    "notes": "Reactions journal local storage add delete implementation"
+  },
+  {
+    "date": "2023-02-14",
+    "hours": 1,
+    "notes": "Reactions journal development"
+  },
+  {
+    "date": "2023-02-15",
+    "hours": 2,
+    "notes": "Reactions journal development. mvp developed."
+  },
+  {
+    "date": "2023-02-16",
+    "hours": 1,
+    "notes": "ReactionsJournal design improvements"
+  },
+  {
+    "date": "2023-02-17",
+    "hours": 1,
+    "notes": "Reactions journal content and styling"
+  },
+  {
+    "date": "2023-02-18",
+    "hours": 2,
+    "notes": "Reactions Journal insights implementation"
+  },
+  {
+    "date": "2023-02-19",
+    "hours": 1,
+    "notes": "Astro SSG setup for personal website"
+  },
+  {
+    "date": "2023-02-20",
+    "hours": 1,
+    "notes": "Relaunch personal website with blog using Astro SSG"
+  },
+  {
+    "date": "2023-02-21",
+    "hours": 1,
+    "notes": "ReactionsJournal sort logdata by conversation date. Add personal site link to dovalues and reactionsJournal"
+  },
+  {
+    "date": "2023-02-22",
+    "hours": 1,
+    "notes": "Personal site deploy configuration"
+  },
+  {
+    "date": "2023-02-23",
+    "hours": 1,
+    "notes": "Firebase tutorial"
+  },
+  {
+    "date": "2023-02-24",
+    "hours": 1,
+    "notes": "Firebase tutorial"
+  },
+  {
+    "date": "2023-02-25",
+    "hours": 1,
+    "notes": "Set up firebase analytics on doValues"
+  },
+  {
+    "date": "2023-02-26",
+    "hours": 0.5,
+    "notes": "Scrimba react router course"
+  },
+  {
+    "date": "2023-02-27",
+    "hours": 0.5,
+    "notes": "Scrimba react router course"
+  },
+  {
+    "date": "2023-02-28",
+    "hours": 0.5,
+    "notes": "Scrimba react router course"
+  },
+  {
+    "date": "2023-03-01",
+    "hours": 2,
+    "notes": "Scrimba react router nested routes"
+  },
+  {
+    "date": "2023-03-02",
+    "hours": 1,
+    "notes": "Scrimba react router"
+  },
+  {
+    "date": "2023-03-03",
+    "hours": 0.5,
+    "notes": "Scrimba react router query params"
+  },
+  {
+    "date": "2023-03-04",
+    "hours": 2,
+    "notes": "Scrimba react router error handling, conditional rendering on authorization"
+  },
+  {
+    "date": "2023-03-05",
+    "hours": 2,
+    "notes": "React router, self empathy app redesign"
+  },
+  {
+    "date": "2023-03-06",
+    "hours": 1,
+    "notes": "React config self empathy app"
+  },
+  {
+    "date": "2023-03-07",
+    "hours": 2,
+    "notes": "React self empathy app page one. Web dev meetup"
+  },
+  {
+    "date": "2023-03-08",
+    "hours": 2,
+    "notes": "React selfempathy.app"
+  },
+  {
+    "date": "2023-03-09",
+    "hours": 1,
+    "notes": "React selfempathy.app useParams"
+  },
+  {
+    "date": "2023-03-10",
+    "hours": 1,
+    "notes": "Redesign pg 2 selfempathy.app"
+  },
+  {
+    "date": "2023-03-11",
+    "hours": 1,
+    "notes": "Self empathy app dev"
+  },
+  {
+    "date": "2023-03-12",
+    "hours": 2,
+    "notes": "Self empathy app dev with AI"
+  },
+  {
+    "date": "2023-03-13",
+    "hours": 1,
+    "notes": "Selfempathy.app dev with AI"
+  },
+  {
+    "date": "2023-03-14",
+    "hours": 1.5,
+    "notes": "Selfempathy.app dev with AI. Deployed mvp"
+  },
+  {
+    "date": "2023-03-15",
+    "hours": 1.5,
+    "notes": "Implement add div functionality to selfempathy.app"
+  },
+  {
+    "date": "2023-03-16",
+    "hours": 1,
+    "notes": "Selfempathy.app development"
+  },
+  {
+    "date": "2023-03-17",
+    "hours": 3,
+    "notes": "Selfempathy.app AI development"
+  },
+  {
+    "date": "2023-03-18",
+    "hours": 2,
+    "notes": "Selfempathy.app bug fixes and setup for openai api"
+  },
+  {
+    "date": "2023-03-19",
+    "hours": 2,
+    "notes": "Made mvp of selfempathy.app with AI feature!"
+  },
+  {
+    "date": "2023-03-20",
+    "hours": 1.5,
+    "notes": "Selfempathy.app AI version troubleshooting and refactoring"
+  },
+  {
+    "date": "2023-03-21",
+    "hours": 1,
+    "notes": "Selfempathy.app development"
+  },
+  {
+    "date": "2023-03-22",
+    "hours": 1,
+    "notes": "Selfempathy.app development"
+  },
+  {
+    "date": "2023-03-23",
+    "hours": 1,
+    "notes": "EmpathyAI development"
+  },
+  {
+    "date": "2023-03-24",
+    "hours": 1,
+    "notes": "Implement open ai API call"
+  },
+  {
+    "date": "2023-03-25",
+    "hours": 1,
+    "notes": "EmpathyAI, reformat data ojects to JSON. Utilize local storage for updating data"
+  },
+  {
+    "date": "2023-03-26",
+    "hours": 1,
+    "notes": "EmpathyAI dev, data type handling after open ai api call"
+  },
+  {
+    "date": "2023-03-27",
+    "hours": 1.5,
+    "notes": "Implement ai feature for add word on EmpathyAI. But ran into build problem with netlify; posted question on support forum"
+  },
+  {
+    "date": "2023-03-28",
+    "hours": 2,
+    "notes": "EmpathyAI development"
+  },
+  {
+    "date": "2023-03-29",
+    "hours": 1,
+    "notes": "Self empathy app feature add. Non ai version of one ai feature in EmpathyAI app"
+  },
+  {
+    "date": "2023-03-30",
+    "hours": 2,
+    "notes": "Update styling on personal website, write blog post"
+  },
+  {
+    "date": "2023-03-31",
+    "hours": 1,
+    "notes": "Detailed styling fixes on personal website"
+  },
+  {
+    "date": "2023-04-01",
+    "hours": 1,
+    "notes": "Refactoring UI book"
+  },
+  {
+    "date": "2023-04-02",
+    "hours": 1,
+    "notes": "HabitualReactions journal blog post. Update personal website. Read RefactoringUI"
+  },
+  {
+    "date": "2023-04-03",
+    "hours": 1,
+    "notes": "RefactoringUI book and small design updates to reactionsjournal"
+  },
+  {
+    "date": "2023-04-04",
+    "hours": 2,
+    "notes": "Webdev meetup, blog post writing"
+  },
+  {
+    "date": "2023-04-05",
+    "hours": 1,
+    "notes": "Initial setup of nineideas on firebase hosting with custom domain. Finished intro blog post on nineideas"
+  },
+  {
+    "date": "2023-04-06",
+    "hours": 1,
+    "notes": "Implement basic idea add component for nineideas"
+  },
+  {
+    "date": "2023-04-07",
+    "hours": 1,
+    "notes": "nineideas refactoring for simplified app"
+  },
+  {
+    "date": "2023-04-08",
+    "hours": 2,
+    "notes": "Update nineideas.  idea edit and local storage implementation"
+  },
+  {
+    "date": "2023-04-09",
+    "hours": 2,
+    "notes": "Nineideas mvp finished"
+  },
+  {
+    "date": "2023-04-10",
+    "hours": 1,
+    "notes": "Nineideas db update and editTopic functionality started"
+  },
+  {
+    "date": "2023-04-11",
+    "hours": 1,
+    "notes": "Error handling and style updates on nineideas.net"
+  },
+  {
+    "date": "2023-04-12",
+    "hours": 1,
+    "notes": "Finalize nineideas.net for mvp. Still using local storage"
+  },
+  {
+    "date": "2023-04-13",
+    "hours": 0.5,
+    "notes": "Nineideas.net bug fixes"
+  },
+  {
+    "date": "2023-04-14",
+    "hours": 2,
+    "notes": "Style updates to dovalues, started MongoDB intro course"
+  },
+  {
+    "date": "2023-04-15",
+    "hours": 2,
+    "notes": "MongoDB course, blog posts"
+  },
+  {
+    "date": "2023-04-16",
+    "hours": 1,
+    "notes": "MongoDB intro course"
+  },
+  {
+    "date": "2023-04-17",
+    "hours": 1.5,
+    "notes": "MongoDB node course. Personal website design updates"
+  },
+  {
+    "date": "2023-04-18",
+    "hours": 1,
+    "notes": "Astro site for nvcatwork"
+  },
+  {
+    "date": "2023-04-19",
+    "hours": 2,
+    "notes": "Blog post, web dev meetup"
+  },
+  {
+    "date": "2023-04-20",
+    "hours": 3,
+    "notes": "nvcatwork Astro website development. Deployed on netlify"
+  },
+  {
+    "date": "2023-04-21",
+    "hours": 2,
+    "notes": "Nvcatwork.com dev"
+  },
+  {
+    "date": "2023-04-22",
+    "hours": 2,
+    "notes": "nvcatwork.com development. SEO optimization, photo optimization. Site complete for now."
+  },
+  {
+    "date": "2023-04-23",
+    "hours": 2,
+    "notes": "Personal site updates, nvcatwork.com redirects, MongoDB intro course"
+  },
+  {
+    "date": "2023-04-24",
+    "hours": 1,
+    "notes": "MongoDB intro course"
+  },
+  {
+    "date": "2023-04-25",
+    "hours": 1,
+    "notes": "CRUD operations in Node.js MongoDB intro course"
+  },
+  {
+    "date": "2023-04-26",
+    "hours": 1.5,
+    "notes": "MongoDB Intro Course: aggregation"
+  },
+  {
+    "date": "2023-04-27",
+    "hours": 3.5,
+    "notes": "Finished MongoDB Node.js developer path"
+  },
+  {
+    "date": "2023-04-28",
+    "hours": 2,
+    "notes": "Express intro"
+  },
+  {
+    "date": "2023-04-29",
+    "hours": 2,
+    "notes": "Express tutorials"
+  },
+  {
+    "date": "2023-04-30",
+    "hours": 1,
+    "notes": "Initialize skiptorecipe project. Vite react tailwind daisy ui netlify deploy."
+  },
+  {
+    "date": "2023-05-01",
+    "hours": 1,
+    "notes": "skiptorecipe ai functionality initialize"
+  },
+  {
+    "date": "2023-05-02",
+    "hours": 1,
+    "notes": "Move api key from firestore to env variable"
+  },
+  {
+    "date": "2023-05-03",
+    "hours": 1,
+    "notes": "Skiptorecipe.netlify.app development"
+  },
+  {
+    "date": "2023-05-04",
+    "hours": 1,
+    "notes": "Skiptorecipe.netlify.app development"
+  },
+  {
+    "date": "2023-05-05",
+    "hours": 0.75,
+    "notes": "Implement save and substitute features on skiptorecipe.netlify.app"
+  },
+  {
+    "date": "2023-05-06",
+    "hours": 1.5,
+    "notes": "Skiptorecipe.netlify.app mvp and mobile optimized"
+  },
+  {
+    "date": "2023-05-07",
+    "hours": 1,
+    "notes": "jumptorecipe development"
+  },
+  {
+    "date": "2023-05-08",
+    "hours": 1,
+    "notes": "jumptorecipe development react router, firebase"
+  },
+  {
+    "date": "2023-05-09",
+    "hours": 1,
+    "notes": "Jumptorecipe dev"
+  },
+  {
+    "date": "2023-05-10",
+    "hours": 2,
+    "notes": "Jumptorecipe trello api integration"
+  },
+  {
+    "date": "2023-05-11",
+    "hours": 2,
+    "notes": "Jumptorecipe mvp finished"
+  },
+  {
+    "date": "2023-05-12",
+    "hours": 2,
+    "notes": "Blog post for jumptorecipe, video demo, personal site update"
+  },
+  {
+    "date": "2023-05-13",
+    "hours": 1,
+    "notes": "AI prompt engineering course"
+  },
+  {
+    "date": "2023-05-14",
+    "hours": 1,
+    "notes": "Finish AI prompt engineering course on deeplearning.ai"
+  },
+  {
+    "date": "2023-05-15",
+    "hours": 1,
+    "notes": "Full stack node express react gpt tutorial"
+  },
+  {
+    "date": "2023-05-16",
+    "hours": 1,
+    "notes": "Read mdn docs on server-side development"
+  },
+  {
+    "date": "2023-05-17",
+    "hours": 1,
+    "notes": "Mdn express tutorial"
+  },
+  {
+    "date": "2023-05-18",
+    "hours": 1,
+    "notes": "Mdn express tutorial"
+  },
+  {
+    "date": "2023-05-19",
+    "hours": 1,
+    "notes": "Mdn express tutorial"
+  },
+  {
+    "date": "2023-05-20",
+    "hours": 2,
+    "notes": "Express mdn tutorial"
+  },
+  {
+    "date": "2023-05-21",
+    "hours": 1,
+    "notes": "Finish mdn express tutorial"
+  },
+  {
+    "date": "2023-05-22",
+    "hours": 1,
+    "notes": "Initial setup for inventory app"
+  },
+  {
+    "date": "2023-05-23",
+    "hours": 1,
+    "notes": "Initial setup for openairfit project. Express models, index route, initialize mongoose"
+  },
+  {
+    "date": "2023-05-24",
+    "hours": 1,
+    "notes": "Openairfit development. Express"
+  },
+  {
+    "date": "2023-05-25",
+    "hours": 2,
+    "notes": "TravelAI initial setup. React, tailwind, daisyUI config"
+  },
+  {
+    "date": "2023-05-26",
+    "hours": 2,
+    "notes": "TravelAI form development. Conditional rendering."
+  },
+  {
+    "date": "2023-05-27",
+    "hours": 1,
+    "notes": "TravelAI development"
+  },
+  {
+    "date": "2023-05-28",
+    "hours": 1,
+    "notes": "TravelAI prompt engineering"
+  },
+  {
+    "date": "2023-05-29",
+    "hours": 1,
+    "notes": "TravelAI mvp finished. Prompt engineering, ope AI api initialization"
+  },
+  {
+    "date": "2023-05-30",
+    "hours": 1,
+    "notes": "TravelAI prompt optimization, conditional styling"
+  },
+  {
+    "date": "2023-05-31",
+    "hours": 1,
+    "notes": "Blog post on travelAI, prompt engineering"
+  },
+  {
+    "date": "2023-06-01",
+    "hours": 1,
+    "notes": "Finish blog post on travelai project, post to linkedin, adplist mentorship session, updates to personal website"
+  },
+  {
+    "date": "2023-06-02",
+    "hours": 2,
+    "notes": "Work with impulse dev tool, styling updates to reactions journal and self empathy app"
+  },
+  {
+    "date": "2023-06-03",
+    "hours": 1,
+    "notes": "Personal site Astro development. Styling updates"
+  },
+  {
+    "date": "2023-06-04",
+    "hours": 2,
+    "notes": "ReactionsJournal refactoring. React router NavLink isActive conditional rendering"
+  },
+  {
+    "date": "2023-06-05",
+    "hours": 1,
+    "notes": "ReactionsJournal navlink style updates. Started fast.ai intro course"
+  },
+  {
+    "date": "2023-06-06",
+    "hours": 1,
+    "notes": "ReactionsJournal bug fixes, style updates. Web dev meetup"
+  },
+  {
+    "date": "2023-06-07",
+    "hours": 3,
+    "notes": "Finished first session of fast.ai course. Completed microgreen classifier project. Implemented routes and controllers for openairfit express project"
+  },
+  {
+    "date": "2023-06-08",
+    "hours": 2,
+    "notes": "Openairfit express views development, fast.ai course"
+  },
+  {
+    "date": "2023-06-09",
+    "hours": 2,
+    "notes": "Fast.ai lesson 2"
+  },
+  {
+    "date": "2023-06-10",
+    "hours": 3,
+    "notes": "Fine-tuned and deployed CloudAtlas ML model"
+  },
+  {
+    "date": "2023-06-11",
+    "hours": 2,
+    "notes": "Review CloudAtlas project and write blog post"
+  },
+  {
+    "date": "2023-06-12",
+    "hours": 1,
+    "notes": "Initialize CloudAtlas gui. Set up react vite tailwind netlify"
+  },
+  {
+    "date": "2023-06-13",
+    "hours": 1,
+    "notes": "Image loader component and styling for CloudAtlas"
+  },
+  {
+    "date": "2023-06-14",
+    "hours": 2,
+    "notes": "Pushed CloudAtlas mvp. Watched fast.ai lesson 3"
+  },
+  {
+    "date": "2023-06-15",
+    "hours": 1,
+    "notes": "CloudAtlas styling, read fast.ai lesson 3 chapter"
+  },
+  {
+    "date": "2023-06-16",
+    "hours": 2,
+    "notes": "Wrote blog post on JSON from GPT. Refactored skiptorecipe"
+  },
+  {
+    "date": "2023-06-17",
+    "hours": 1,
+    "notes": "Updated personal site styling"
+  },
+  {
+    "date": "2023-06-18",
+    "hours": 2,
+    "notes": "Fast.ai lesson 0. Scrimba AI course"
+  },
+  {
+    "date": "2023-06-19",
+    "hours": 2,
+    "notes": "Add createImage feature to skiptorecipe. Deeplearning.ai langchain short course"
+  },
+  {
+    "date": "2023-06-20",
+    "hours": 1,
+    "notes": "Deeplearning.ai short course on langchain"
+  },
+  {
+    "date": "2023-06-21",
+    "hours": 2,
+    "notes": "Langchain development, web dev meetup"
+  },
+  {
+    "date": "2023-06-22",
+    "hours": 2,
+    "notes": "Chatbot dev with scrimba"
+  },
+  {
+    "date": "2023-06-23",
+    "hours": 2,
+    "notes": "Fine-tune chatbot with openai api"
+  }
+]
