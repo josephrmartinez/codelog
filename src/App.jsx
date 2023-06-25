@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import format from 'date-fns/format'
+import { format } from 'date-fns'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -37,7 +37,6 @@ qSnapshot.forEach((doc) => {
 
 
 const log = logItems.map((each, index) => {
-  
   let op;
   if (each.hours < 1) {
     op = 50;
@@ -52,11 +51,11 @@ const log = logItems.map((each, index) => {
     <div key={index}
       className={`opacity-${op} bg-gradient-to-br from-green-500 to-green-800 rounded-md shadow-lg`}
       onClick={() => console.log(format((new Date(each.date.seconds * 1000)), 'EEEE, MMMM do'))}
-      title={format((new Date(each.date.seconds * 1000)), 'EEEE, MMMM do')}>{each.hours}</div>
+      >{each.hours}</div>
     )
   })
 
-
+// title={format((new Date(each.date.seconds * 1000)), 'EEEE, MMMM do')}
 
 function click() {
   console.log(q.data())
@@ -65,15 +64,33 @@ function click() {
 const querySnapshot = await getDocs(collection(db, "log"));
 const totalCount = querySnapshot.size;
 
-// async function addEntry() {
-//   await setDoc(doc(logRef), {
-//     date: xx,
-//     hours: xxx,
-//     notes: xxxx
-//   });
-// }
+
 
 function App() {
+  const [studyDate, setStudyDate] = useState(new Date().toISOString().split('T')[0])
+  const [hours, setHours] = useState(0)
+  const [notes, setNotes] = useState("")
+
+
+  async function addEntry() {
+  if (hours === 0) {
+    return; // Return early if hours is 0
+  }
+
+  try {
+    await setDoc(doc(logRef), {
+      date: studyDate,
+      hours: hours,
+      notes: notes
+    });
+
+    console.log('Firestore database update successful');
+    setNotes("")
+    setHours(0)
+  } catch (error) {
+    console.error('Error updating Firestore database:', error);
+  }
+}
 
   return (
     <>
@@ -82,25 +99,59 @@ function App() {
       <div className='flex flex-col items-center'>
       <div className='grid grid-cols-7 grid-rows-[repeat(11,_minmax(0,_1fr))] grid-flow-row w-80 h-[32rem] gap-2'>
           {log}
-          <div
-      className={`opacity-10 cursor-pointer bg-gradient-to-br from-green-500 to-green-800 rounded-md shadow-lg`}
-      >+</div>
+          
+          
+          
       
+    
+<button className="opacity-100 cursor-pointer bg-gradient-to-br from-green-500 to-green-800 rounded-md shadow-lg" onClick={()=>window.my_modal_1.showModal()}>+</button>
+
+<dialog id="my_modal_1" className="modal">
+<form method="dialog" className="modal-box">
+<div className='flex flex-col items-center'>
+  <div className='font-semibold mb-5'>log session</div>
+  <div className='flex flex-row '><input
+    type="date"
+    name="date"
+    id="date"
+    value={studyDate}
+    onChange={(e) => setStudyDate(e.target.value)}
+    className='border p-2' />
+  
+  <input
+    type="number"
+    name="hours"
+    autoFocus
+    placeholder="hours"
+    id="hours"
+    value={hours}
+    onChange={(e) => setHours(e.target.value)}
+    className='border p-2 w-20 ml-2' />
+  </div>
+  <textarea
+    placeholder="notes"
+    className='border my-2 w-60 p-2'
+    value={notes}
+    onChange={(e) => setNotes(e.target.value)}/>
+  
+</div>
+              
+
+    <div className="modal-action">
+      {/* if there is a button in form, it will close the modal */}
+      <button className="btn" onClick={()=> addEntry()}>Submit</button>
+      <button className="btn">Close</button>
+    </div>
+  </form>
+</dialog>
+
 
       </div>
 
       </div>      
-      {/* <button className='btn ' onClick={click}>click me</button> */}
+     
 
-      {/* <div className='flex flex-col items-center border border-gray-200'>
-        <label htmlFor="date">date</label>
-        <input type="date" name="date" id="date" className='border'/>
-        <label htmlFor="hours">hours</label>
-        <input type="number" name="hours" id="hours" className='border' />
-        <label htmlFor="notes">notes</label>
-        <input type="text" name="" id="" className='border'/>
-        <button className='outline rounded-full py-3 px-5 my-5'>log entry</button>
-      </div> */}
+      
     </>
   )
 }
