@@ -4,9 +4,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { initializeApp } from "firebase/app";
-import { getFirestore, getDocs, query, where, orderBy, limit, doc, setDoc, addDoc, collection } from "firebase/firestore";
-
-
+import { getFirestore, Timestamp, getDocs, query, where, orderBy, limit, doc, setDoc, addDoc, collection } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAWO2mWmHzTQp7P0htw0pN4NR-K3Ze95xo",
@@ -16,7 +14,6 @@ const firebaseConfig = {
   messagingSenderId: "39429202746",
   appId: "1:39429202746:web:45ae4739c0bc19a4212603"
 };
-
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -30,11 +27,9 @@ const qSnapshot = await getDocs(q)
 
 let logItems = []
 
-
 qSnapshot.forEach((doc) => {
   logItems.unshift(doc.data())
 })
-
 
 const log = logItems.map((each, index) => {
   let op;
@@ -50,36 +45,30 @@ const log = logItems.map((each, index) => {
   return (
     <div key={index}
       className={`opacity-${op} bg-gradient-to-br from-green-500 to-green-800 rounded-md shadow-lg`}
-      onClick={() => console.log(format((new Date(each.date.seconds * 1000)), 'EEEE, MMMM do'))}
-      >{each.hours}</div>
+      onClick={() => console.log(typeof each.date)}
+      title={format((new Date(each.date.seconds * 1000)), 'EEEE, MMMM do')}>{each.hours}</div>
     )
   })
 
-// title={format((new Date(each.date.seconds * 1000)), 'EEEE, MMMM do')}
-
-function click() {
-  console.log(q.data())
-}
-
 const querySnapshot = await getDocs(collection(db, "log"));
 const totalCount = querySnapshot.size;
-
-
 
 function App() {
   const [studyDate, setStudyDate] = useState(new Date().toISOString().split('T')[0])
   const [hours, setHours] = useState(0)
   const [notes, setNotes] = useState("")
 
-
-  async function addEntry() {
+async function addEntry() {
   if (hours === 0) {
     return; // Return early if hours is 0
   }
 
+  const date = new Date(studyDate);
+  const timestamp = Timestamp.fromDate(date);
+    
   try {
     await setDoc(doc(logRef), {
-      date: studyDate,
+      date: timestamp,
       hours: hours,
       notes: notes
     });
@@ -99,12 +88,8 @@ function App() {
       <div className='flex flex-col items-center'>
       <div className='grid grid-cols-7 grid-rows-[repeat(11,_minmax(0,_1fr))] grid-flow-row w-80 h-[32rem] gap-2'>
           {log}
-          
-          
-          
-      
     
-<button className="opacity-100 cursor-pointer bg-gradient-to-br from-green-500 to-green-800 rounded-md shadow-lg" onClick={()=>window.my_modal_1.showModal()}>+</button>
+<button className="opacity-100 cursor-pointer bg-gray-200 outline rounded-md shadow-lg" onClick={()=>window.my_modal_1.showModal()}>+</button>
 
 <dialog id="my_modal_1" className="modal">
 <form method="dialog" className="modal-box">
@@ -139,19 +124,15 @@ function App() {
 
     <div className="modal-action">
       {/* if there is a button in form, it will close the modal */}
-      <button className="btn" onClick={()=> addEntry()}>Submit</button>
-      <button className="btn">Close</button>
+      <button className="btn btn-ghost">Close</button>
+      <button className="btn btn-outline" onClick={() => addEntry()}>Submit</button>
+      
     </div>
   </form>
 </dialog>
 
-
       </div>
-
       </div>      
-     
-
-      
     </>
   )
 }
