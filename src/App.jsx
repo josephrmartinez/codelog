@@ -86,9 +86,7 @@ async function addEntry() {
   if (hours === 0) {
     return;
   }
-
-  const date = new Date(studyDate);
-  const timestamp = Timestamp.fromDate(date);
+  const timestamp = Timestamp.fromDate(studyDate);
 
   try {
     await setDoc(doc(logRef), {
@@ -107,7 +105,7 @@ async function addEntry() {
 
   return (
     <>
-      <div>You have been coding for {totalCount} days!</div>
+      <div className='mb-6 font-light text-lg'>{totalCount} days of code</div>
       
       <div className='flex flex-col items-center'>
       <div className='grid grid-cols-7 grid-rows-[repeat(11,_minmax(0,_1fr))] grid-flow-row w-80 h-[32rem] gap-2'>

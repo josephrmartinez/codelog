@@ -1,4 +1,4 @@
-- FIGURE OUT WHY SO MANY READ ACTIONS ARE BEING SENT TO FIREBASE
+- Troubleshoot date obj. Default should be today's date. Make sure correct studyDate object is being passed to timestamp.
 
 - Update four styles for different darkness/saturation
 - Style add button
