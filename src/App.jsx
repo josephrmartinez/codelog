@@ -1,10 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { format } from 'date-fns'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { initializeApp } from "firebase/app";
-import { getFirestore, Timestamp, getDocs, query, where, orderBy, limit, doc, setDoc, addDoc, collection } from "firebase/firestore";
+import { getFirestore, Timestamp, getDocs, query, orderBy, limit, doc, setDoc, addDoc, collection, getCountFromServer } from "firebase/firestore";
+
+function App() {
+  const [studyDate, setStudyDate] = useState(new Date().toISOString().split('T')[0]);
+  const [hours, setHours] = useState(0);
+  const [notes, setNotes] = useState("");
+  const [totalCount, setTotalCount] = useState(0);
+  const [log, setLog] = useState([]);
+
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyAWO2mWmHzTQp7P0htw0pN4NR-K3Ze95xo",
@@ -16,68 +23,85 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const logRef = collection(db, "log")
+  
 
-// Initialize Cloud Firestore and get a reference to the service and log collection
-const db = getFirestore(app);
-const logRef = collection(db, "log")
+  useEffect(() => {
+    const fetchLogData = async () => {
+      const q = query(logRef, orderBy("date", "desc"), limit(76))
+      const qSnapshot = await getDocs(q);
 
-const q = query(logRef, orderBy("date", "desc"), limit(76))
-const qSnapshot = await getDocs(q)
+      const logData = qSnapshot.docs.reverse().map((doc) => {
+        const data = doc.data();
+        let op;
+        if (data.hours < 1) {
+          op = 'border-green-600 opacity-80  from-green-300 to-green-600';
+        } else if (data.hours >= 1 && data.hours <= 1.5) {
+          op = 'border-green-700 opacity-90 from-green-400 to-green-700';
+        } else if (data.hours > 1.5 && data.hours <= 2) {
+          op = 'border-green-800 from-green-500 to-green-800';
+        } else {
+          op = 'border-green-900 from-green-700 to-green-900';
+        }
+        return {
+          id: doc.id,
+          data,
+          opacity: op,
+        };
+      });
 
-let logItems = []
+      return logData;
+    };
+  
 
-qSnapshot.forEach((doc) => {
-  logItems.unshift(doc.data())
-})
+    const fetchLogDataAndCount = async () => {
+      const snapshot = await getCountFromServer(logRef);
+      const totalCount = snapshot.data().count;
+      setTotalCount(totalCount);
 
-const log = logItems.map((each, index) => {
-  let op;
-  if (each.hours < 1) {
-    op = 50;
-  } else if (each.hours >= 1 && each.hours <= 1.5) {
-    op = 80;
-  } else if (each.hours > 1.5 && each.hours <= 2) {
-    op = 90;
-  } else {
-    op = 100;
-  }
-  return (
-    <div key={index}
-      className={`opacity-${op} bg-gradient-to-br from-green-500 to-green-800 rounded-md shadow-lg`}
-      onClick={() => console.log(typeof each.date)}
-      title={format((new Date(each.date.seconds * 1000)), 'EEEE, MMMM do')}>{each.hours}</div>
-    )
-  })
+      const logData = await fetchLogData();
+      setLog(logData);
+    };
+    fetchLogDataAndCount();
+  }, []);
+  
 
-const querySnapshot = await getDocs(collection(db, "log"));
-const totalCount = querySnapshot.size;
 
-function App() {
-  const [studyDate, setStudyDate] = useState(new Date().toISOString().split('T')[0])
-  const [hours, setHours] = useState(0)
-  const [notes, setNotes] = useState("")
+const logItems = log.map((item) => (
+  <div
+    key={item.id}
+    className={`${item.opacity} bg-gradient-to-br border rounded-md shadow-lg`}
+    onClick={() => console.log(typeof item.data.date)}
+    title={`${format(item.data.date.toDate(), "EEEE, MMMM do")} - ${item.data.hours} hours`}
+  >
+  
+  </div>
+));
+
+
 
 async function addEntry() {
   if (hours === 0) {
-    return; // Return early if hours is 0
+    return;
   }
 
   const date = new Date(studyDate);
   const timestamp = Timestamp.fromDate(date);
-    
+
   try {
     await setDoc(doc(logRef), {
       date: timestamp,
       hours: hours,
-      notes: notes
+      notes: notes,
     });
 
-    console.log('Firestore database update successful');
-    setNotes("")
-    setHours(0)
+    console.log("Firestore database update successful");
+    setNotes("");
+    setHours(0);
   } catch (error) {
-    console.error('Error updating Firestore database:', error);
+    console.error("Error updating Firestore database:", error);
   }
 }
 
@@ -87,9 +111,12 @@ async function addEntry() {
       
       <div className='flex flex-col items-center'>
       <div className='grid grid-cols-7 grid-rows-[repeat(11,_minmax(0,_1fr))] grid-flow-row w-80 h-[32rem] gap-2'>
-          {log}
+          {logItems}
     
-<button className="opacity-100 cursor-pointer bg-gray-200 outline rounded-md shadow-lg" onClick={()=>window.my_modal_1.showModal()}>+</button>
+          <button
+            className="opacity-100 cursor-pointer from-gray-200 to-gray-400 bg-gradient-to-br border border-gray-400 rounded-md shadow-lg flex flex-col items-center justify-center"
+            onClick={() => window.my_modal_1.showModal()}>
+            <span className='font-semibold text-white text-3xl'>+</span></button>
 
 <dialog id="my_modal_1" className="modal">
 <form method="dialog" className="modal-box">
