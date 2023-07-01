@@ -4,8 +4,7 @@ import './App.css'
 import { app, db } from "./Firebase";
 import { getDocs, query, orderBy, limit, doc, setDoc, addDoc, collection, getCountFromServer } from "firebase/firestore";
 import { DateTime } from 'luxon';
-import ReactCalendarHeatmap from 'react-calendar-heatmap';
-import 'react-calendar-heatmap/dist/styles.css';
+
 
 
 function App() {
