@@ -4,6 +4,8 @@ import './App.css'
 import { app, db } from "./Firebase";
 import { getDocs, query, orderBy, limit, doc, setDoc, addDoc, collection, getCountFromServer } from "firebase/firestore";
 import { DateTime } from 'luxon';
+import ReactCalendarHeatmap from 'react-calendar-heatmap';
+import 'react-calendar-heatmap/dist/styles.css';
 
 
 function App() {
@@ -19,7 +21,7 @@ function App() {
 
   useEffect(() => {
     const fetchLogData = async () => {
-      const q = query(logRef, orderBy("date", "desc"), limit(76))
+      const q = query(logRef, orderBy("date", "desc"), limit(12))
       const qSnapshot = await getDocs(q);
 
       const logData = qSnapshot.docs.reverse().map((doc) => {
