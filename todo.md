@@ -1,7 +1,6 @@
 - Finalize design and layout
 - develop tooltip function to display notes
-- update collection in firebase with correct key names and formatting
-- fetch number of entries: number of days in month so far + 2
-- develop data obj with data fetched from firestore
+
+
+
 - update addEntry function to actually setDoc in database
-- ADDRESS DEPLOY ISSUE WITH ESLINT

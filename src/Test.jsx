@@ -2,7 +2,7 @@ import { ResponsiveTimeRange } from '@nivo/calendar'
 import { DateTime } from 'luxon';
 import { useState, useEffect } from 'react';
 import { db } from "./firebase.js";
-import { getCountFromServer, collection } from 'firebase/firestore';
+import { getCountFromServer, collection, query, getDocs, orderBy, limit } from 'firebase/firestore';
 
 const data = [
     {
@@ -185,7 +185,24 @@ export default function Test() {
       }, []);
 
 
+      useEffect(() => {
+        async function fetchData() {
+            console.log("fetching data")
+            const logRef = collection(db, "log");
+            const q = query(logRef, orderBy("day", "desc"), limit(dt.day))
+            const QuerySnapshot = await getDocs(q);
 
+            const qSnapshotArray = QuerySnapshot.docs.map((doc) => doc.data());
+            setLogData(qSnapshotArray);
+
+            // qSnapshot.forEach((doc) => {
+            //     console.log(doc.id, " => ", doc.data());
+            //   });
+        }
+            
+        fetchData();
+        },[]);
+        
 
 
     function addEntry() {
@@ -206,11 +223,13 @@ export default function Test() {
     return (
         <div className='h-full w-full flex flex-col items-center'>
             <div className='font-bold text-xl mt-12'>{totalCount} days of code</div>
-            <div className='w-80 h-96'>
+            <div className='w-80 h-80 flex flex-col items-center'>
             <ResponsiveTimeRange
                     data={logData}
                     from={firstDay}
                     to={lastDay}
+                    align='center'
+                    margin={{top: -40, }}
                     emptyColor="#eeeeee"
                     dayRadius={100}
                     colors={[ '#C6F6D5', '#9AE6B4', '#48BB78', '#2F855A' ]}
@@ -222,7 +241,7 @@ export default function Test() {
             </div>
 
             <div
-            className="btn btn-ghost text-3xl text-gray-400"
+            className="btn btn-ghost text-3xl my-4 text-gray-400"
             onClick={() => window.my_modal_1.showModal()}>
             +</div>
 
