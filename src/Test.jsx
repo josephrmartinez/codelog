@@ -1,7 +1,7 @@
 import { ResponsiveTimeRange } from '@nivo/calendar'
 import { DateTime } from 'luxon';
 import { useState, useEffect } from 'react';
-import { db } from "./Firebase.js";
+import { db } from "./firebase.js";
 import { getCountFromServer, collection } from 'firebase/firestore';
 
 const data = [
