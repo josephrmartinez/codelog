@@ -1,304 +1,268 @@
 import { ResponsiveTimeRange } from '@nivo/calendar'
-
-// make sure parent container have a defined height when using
-// responsive component, otherwise height will be 0 and
-// no chart will be rendered.
-// website examples showcase many properties,
-// you'll often use just a few of them.
+import { DateTime } from 'luxon';
+import { useState, useEffect } from 'react';
+import { db } from "./Firebase";
+import { getCountFromServer, collection } from 'firebase/firestore';
 
 const data = [
     {
-      "value": 169,
-      "day": "2018-06-29"
-    },
-    {
-      "value": 260,
-      "day": "2018-04-14"
-    },
-    {
-      "value": 165,
-      "day": "2018-05-02"
-    },
-    {
-      "value": 44,
-      "day": "2018-08-11"
-    },
-    {
-      "value": 229,
-      "day": "2018-06-16"
-    },
-    {
-      "value": 9,
-      "day": "2018-04-08"
-    },
-    {
-      "value": 76,
-      "day": "2018-06-14"
-    },
-    {
-      "value": 298,
-      "day": "2018-05-08"
-    },
-    {
-      "value": 221,
-      "day": "2018-06-03"
-    },
-    {
-      "value": 254,
-      "day": "2018-07-08"
-    },
-    {
-      "value": 88,
-      "day": "2018-05-15"
-    },
-    {
-      "value": 164,
-      "day": "2018-08-09"
-    },
-    {
-      "value": 123,
-      "day": "2018-04-01"
-    },
-    {
-      "value": 341,
-      "day": "2018-07-05"
-    },
-    {
-      "value": 239,
-      "day": "2018-07-22"
-    },
-    {
-      "value": 375,
-      "day": "2018-07-04"
-    },
-    {
-      "value": 335,
-      "day": "2018-05-06"
-    },
-    {
-      "value": 230,
-      "day": "2018-07-03"
-    },
-    {
-      "value": 160,
-      "day": "2018-08-04"
-    },
-    {
-      "value": 122,
-      "day": "2018-06-15"
-    },
-    {
-      "value": 361,
-      "day": "2018-04-20"
-    },
-    {
-      "value": 12,
-      "day": "2018-08-03"
-    },
-    {
-      "value": 293,
-      "day": "2018-04-11"
-    },
-    {
-      "value": 146,
-      "day": "2018-07-06"
-    },
-    {
-      "value": 66,
-      "day": "2018-06-25"
-    },
-    {
-      "value": 229,
-      "day": "2018-04-25"
-    },
-    {
-      "value": 288,
-      "day": "2018-08-10"
-    },
-    {
-      "value": 52,
-      "day": "2018-06-20"
-    },
-    {
-      "value": 61,
-      "day": "2018-05-20"
-    },
-    {
-      "value": 389,
-      "day": "2018-07-19"
-    },
-    {
-      "value": 384,
-      "day": "2018-08-05"
-    },
-    {
-      "value": 198,
-      "day": "2018-06-24"
-    },
-    {
-      "value": 114,
-      "day": "2018-05-28"
-    },
-    {
-      "value": 186,
-      "day": "2018-08-06"
-    },
-    {
-      "value": 18,
-      "day": "2018-07-10"
-    },
-    {
-      "value": 274,
-      "day": "2018-04-24"
-    },
-    {
-      "value": 249,
-      "day": "2018-06-10"
-    },
-    {
-      "value": 372,
-      "day": "2018-06-28"
-    },
-    {
-      "value": 159,
-      "day": "2018-05-22"
-    },
-    {
-      "value": 107,
-      "day": "2018-05-26"
-    },
-    {
-      "value": 55,
-      "day": "2018-07-11"
-    },
-    {
-      "value": 320,
-      "day": "2018-04-02"
-    },
-    {
-      "value": 51,
-      "day": "2018-04-07"
-    },
-    {
-      "value": 169,
-      "day": "2018-06-26"
-    },
-    {
-      "value": 239,
-      "day": "2018-04-15"
-    },
-    {
-      "value": 218,
-      "day": "2018-07-13"
-    },
-    {
-      "value": 247,
-      "day": "2018-05-12"
-    },
-    {
-      "value": 304,
-      "day": "2018-08-02"
-    },
-    {
-      "value": 243,
-      "day": "2018-06-27"
-    },
-    {
-      "value": 208,
-      "day": "2018-06-04"
-    },
-    {
-      "value": 16,
-      "day": "2018-05-13"
-    },
-    {
-      "value": 377,
-      "day": "2018-04-06"
-    },
-    {
-      "value": 166,
-      "day": "2018-05-31"
-    },
-    {
-      "value": 298,
-      "day": "2018-04-23"
-    },
-    {
-      "value": 301,
-      "day": "2018-05-27"
-    },
-    {
-      "value": 142,
-      "day": "2018-07-24"
-    },
-    {
-      "value": 105,
-      "day": "2018-07-12"
-    },
-    {
-      "value": 361,
-      "day": "2018-08-01"
-    },
-    {
-      "value": 343,
-      "day": "2018-05-19"
-    },
-    {
-      "value": 13,
-      "day": "2018-06-12"
-    },
-    {
-      "value": 34,
-      "day": "2018-04-05"
-    },
-    {
-      "value": 317,
-      "day": "2018-04-10"
-    },
-    {
-      "value": 137,
-      "day": "2018-07-20"
-    },
-    {
-      "value": 29,
-      "day": "2018-07-30"
-    },
-    {
-      "value": 344,
-      "day": "2018-07-02"
-    }
-  ]
+        day: "2023-06-01",
+        value: 1,
+        notes: "Finish blog post on travelai project, post to linkedin, adplist mentorship session, updates to personal website"
+      },
+      {
+        day: "2023-06-02",
+        value: 2,
+        notes: "Work with impulse dev tool, styling updates to reactions journal and self empathy app"
+      },
+      {
+        day: "2023-06-03",
+        value: 1,
+        notes: "Personal site Astro development. Styling updates"
+      },
+      {
+        day: "2023-06-04",
+        value: 2,
+        notes: "ReactionsJournal refactoring. React router NavLink isActive conditional rendering"
+      },
+      {
+        day: "2023-06-05",
+        value: 1,
+        notes: "ReactionsJournal navlink style updates. Started fast.ai intro course"
+      },
+      {
+        day: "2023-06-06",
+        value: 1,
+        notes: "ReactionsJournal bug fixes, style updates. Web dev meetup"
+      },
+      {
+        day: "2023-06-07",
+        value: 3,
+        notes: "Finished first session of fast.ai course. Completed microgreen classifier project. Implemented routes and controllers for openairfit express project"
+      },
+      {
+        day: "2023-06-08",
+        value: 2,
+        notes: "Openairfit express views development, fast.ai course"
+      },
+      {
+        day: "2023-06-09",
+        value: 2,
+        notes: "Fast.ai lesson 2"
+      },
+      {
+        day: "2023-06-10",
+        value: 3,
+        notes: "Fine-tuned and deployed CloudAtlas ML model"
+      },
+      {
+        day: "2023-06-11",
+        value: 2,
+        notes: "Review CloudAtlas project and write blog post"
+      },
+      {
+        day: "2023-06-12",
+        value: 1,
+        notes: "Initialize CloudAtlas gui. Set up react vite tailwind netlify"
+      },
+      {
+        day: "2023-06-13",
+        value: 1,
+        notes: "Image loader component and styling for CloudAtlas"
+      },
+      {
+        day: "2023-06-14",
+        value: 2,
+        notes: "Pushed CloudAtlas mvp. Watched fast.ai lesson 3"
+      },
+      {
+        day: "2023-06-15",
+        value: 1,
+        notes: "CloudAtlas styling, read fast.ai lesson 3 chapter"
+      },
+      {
+        day: "2023-06-16",
+        value: 2,
+        notes: "Wrote blog post on JSON from GPT. Refactored skiptorecipe"
+      },
+      {
+        day: "2023-06-17",
+        value: 1,
+        notes: "Updated personal site styling"
+      },
+      {
+        day: "2023-06-18",
+        value: 2,
+        notes: "Fast.ai lesson 0. Scrimba AI course"
+      },
+      {
+        day: "2023-06-19",
+        value: 2,
+        notes: "Add createImage feature to skiptorecipe. Deeplearning.ai langchain short course"
+      },
+      {
+        day: "2023-06-20",
+        value: 1,
+        notes: "Deeplearning.ai short course on langchain"
+      },
+      {
+        day: "2023-06-21",
+        value: 2,
+        notes: "Langchain development, web dev meetup"
+      },
+      {
+        day: "2023-06-22",
+        value: 2,
+        notes: "Chatbot dev with scrimba"
+      },
+      {
+        day: "2023-06-23",
+        value: 2,
+        notes: "Fine-tune chatbot with openai api"
+      },
+      {
+        day: "2023-06-24",
+        value: 2,
+        notes: "Fast.ai lesson 0. Scrimba AI course"
+      },
+      {
+        day: "2023-06-25",
+        value: 2,
+        notes: "Add createImage feature to skiptorecipe. Deeplearning.ai langchain short course"
+      },
+      {
+        day: "2023-06-26",
+        value: 1,
+        notes: "Deeplearning.ai short course on langchain"
+      },
+      {
+        day: "2023-06-27",
+        value: 2,
+        notes: "Langchain development, web dev meetup"
+      },
+      {
+        day: "2023-06-28",
+        value: 2,
+        notes: "Chatbot dev with scrimba"
+      },
+      {
+        day: "2023-06-29",
+        value: 2,
+        notes: "Fine-tune chatbot with openai api"
+      },
+      {
+        day: "2023-06-30",
+        value: 2,
+        notes: "Fine-tune chatbot with openai api"
+      }
+    ]
+
+// get the first and last day of the month for start and end dates
+const dt = DateTime.now()
+console.log(dt.startOf('month').toFormat("yyyy'-'LL'-'dd"))
+
+const currentMonth = DateTime.local().month;
+const nextMonth = DateTime.local().set({ month: currentMonth + 1 });
+console.log(nextMonth.toFormat("yyyy'-'LL'-'dd"))
+
 
 export default function Test() {
-    return (
-        <div className='h-screen w-screen'>
+    const [logData, setLogData] = useState([])
+    const [firstDay, setFirstDay] = useState(dt.startOf('month').toFormat("yyyy'-'LL'-'dd"))
+    const [lastDay, setLastDay] = useState(nextMonth.toFormat("yyyy'-'LL'-'dd"))
+    const [inputDate, setInputDate] = useState(dt.toFormat("yyyy'-'LL'-'dd"))
+    const [inputHours, setInputHours] = useState(0)
+    const [inputNotes, setInputNotes] = useState("")
+    const [totalCount, setTotalCount] = useState(0)
 
-<ResponsiveTimeRange
-        data={data}
-        from="2018-04-01"
-        to="2018-08-12"
-        emptyColor="#eeeeee"
-        colors={[ '#61cdbb', '#97e3d5', '#e8c1a0', '#f47560' ]}
-        margin={{ top: 40, right: 40, bottom: 100, left: 40 }}
-        dayBorderWidth={2}
-        dayBorderColor="#ffffff"
-        legends={[
-            {
-                anchor: 'bottom-right',
-                direction: 'row',
-                justify: false,
-                itemCount: 4,
-                itemWidth: 42,
-                itemHeight: 36,
-                itemsSpacing: 14,
-                itemDirection: 'right-to-left',
-                translateX: -60,
-                translateY: -60,
-                symbolSize: 20
-            }
-        ]}
-    />
-        </div>
+
+
+    useEffect(() => {
+        async function getCount() {
+          const logRef = collection(db, "log");
+          const snapshot = await getCountFromServer(logRef);
+          const totalCount = snapshot.data().count;
+          setTotalCount(totalCount);
+        }
+      
+        getCount();
+      }, []);
+
+    function addEntry() {
+        setLogData([
+          ...logData,
+          {
+            day: inputDate,
+            value: inputHours,
+            notes: inputNotes,
+          }
+        ]);
+      }
+
+
+    return (
+        <div className='h-full w-full flex flex-col items-center'>
+            <div>{totalCount} days of code</div>
+            <div className='w-80 h-96'>
+            <ResponsiveTimeRange
+                    data={logData}
+                    from={firstDay}
+                    to={lastDay}
+                    emptyColor="#eeeeee"
+                    dayRadius={40}
+                    colors={[ '#C6F6D5', '#9AE6B4', '#48BB78', '#2F855A' ]}
+                    weekdayTicks={[]}
+                    dayBorderWidth={2}
+                    align='center'
+                    direction='vertical'
+                    dayBorderColor="#ffffff"  
+                />
+            </div>
+
+            <div
+            className="btn"
+            onClick={() => window.my_modal_1.showModal()}>
+            <span className='font-semibold text-green-600 text-3xl'>+</span></div>
+
+
+            <dialog id="my_modal_1" className="modal">
+            <form method="dialog" className="modal-box">
+            <div className='flex flex-col items-center'>
+            <div className='font-semibold mb-5'>log session</div>
+            <div className='flex flex-row '><input
+                type="date"
+                name="date"
+                id="date"
+                value={inputDate}
+                onChange={(e) => setInputDate(e.target.value)}
+                className='border p-2' />
+            
+            <input
+                type="number"
+                name="hours"
+                autoFocus
+                placeholder="hours"
+                id="hours"
+                value={inputHours}
+                onChange={(e) => setInputHours(e.target.value)}
+                className='border p-2 w-20 ml-2' />
+            </div>
+            <textarea
+                placeholder="notes"
+                className='border my-2 w-60 p-2'
+                value={inputNotes}
+                onChange={(e) => setInputNotes(e.target.value)}/>
+            
+            </div>
+                <div className="modal-action">
+                <button className="btn btn-ghost">Close</button>
+                <button className="btn btn-outline" onClick={() => addEntry()}>Submit</button>
+                </div>
+            </form>
+            </dialog>
+
+
+                </div>
         
     )
 }
