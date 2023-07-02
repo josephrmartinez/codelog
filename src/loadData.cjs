@@ -21,8 +21,8 @@ const firebaseConfig = {
   try {
     for (const element of json) {
       await addDoc(collection(db, "log"), {
-        date: element.date,
-        hours: element.hours,
+        day: element.day,
+        value: element.value,
         notes: element.notes
       });
       console.log("Document successfully written!");
