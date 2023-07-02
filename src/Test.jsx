@@ -205,27 +205,26 @@ export default function Test() {
 
     return (
         <div className='h-full w-full flex flex-col items-center'>
-            <div>{totalCount} days of code</div>
+            <div className='font-bold text-xl mt-12'>{totalCount} days of code</div>
             <div className='w-80 h-96'>
             <ResponsiveTimeRange
                     data={logData}
                     from={firstDay}
                     to={lastDay}
                     emptyColor="#eeeeee"
-                    dayRadius={40}
+                    dayRadius={100}
                     colors={[ '#C6F6D5', '#9AE6B4', '#48BB78', '#2F855A' ]}
                     weekdayTicks={[]}
-                    dayBorderWidth={2}
-                    align='center'
+                    dayBorderWidth={6}
                     direction='vertical'
                     dayBorderColor="#ffffff"  
                 />
             </div>
 
             <div
-            className="btn"
+            className="btn btn-ghost text-3xl text-gray-400"
             onClick={() => window.my_modal_1.showModal()}>
-            <span className='font-semibold text-green-600 text-3xl'>+</span></div>
+            +</div>
 
 
             <dialog id="my_modal_1" className="modal">
@@ -236,6 +235,7 @@ export default function Test() {
                 type="date"
                 name="date"
                 id="date"
+                autoFocus={false}
                 value={inputDate}
                 onChange={(e) => setInputDate(e.target.value)}
                 className='border p-2' />
@@ -243,7 +243,7 @@ export default function Test() {
             <input
                 type="number"
                 name="hours"
-                autoFocus
+                autoFocus={true}
                 placeholder="hours"
                 id="hours"
                 value={inputHours}
