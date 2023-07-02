@@ -159,11 +159,8 @@ const data = [
 
 // get the first and last day of the month for start and end dates
 const dt = DateTime.now()
-console.log(dt.startOf('month').toFormat("yyyy'-'LL'-'dd"))
-
 const currentMonth = DateTime.local().month;
 const nextMonth = DateTime.local().set({ month: currentMonth + 1 });
-console.log(nextMonth.toFormat("yyyy'-'LL'-'dd"))
 
 
 export default function Test() {
@@ -184,9 +181,12 @@ export default function Test() {
           const totalCount = snapshot.data().count;
           setTotalCount(totalCount);
         }
-      
         getCount();
       }, []);
+
+
+
+
 
     function addEntry() {
         setLogData([
@@ -197,6 +197,9 @@ export default function Test() {
             notes: inputNotes,
           }
         ]);
+        //  MOVE THESE VALUES INTO A USEEFFECT
+        setInputHours(0)
+        setInputNotes("")
       }
 
 
