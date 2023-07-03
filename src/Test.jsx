@@ -19,6 +19,7 @@ export default function Test() {
     const [inputHours, setInputHours] = useState(0)
     const [inputNotes, setInputNotes] = useState("")
     const [totalCount, setTotalCount] = useState(0)
+    const [displayData, setDisplayData] = useState({})
 
     async function getCount() {
         const logRef = collection(db, "log");
@@ -83,7 +84,9 @@ export default function Test() {
                     weekdayTicks={[]}
                     dayBorderWidth={6}
                     direction='vertical'
-                    dayBorderColor="#ffffff"  
+                    dayBorderColor="#ffffff"
+                    tooltip={() => null}
+                    onClick={(day, event) => {setDisplayData(day); window.my_modal_2.showModal() }}  
                 />
             </div>
 
@@ -130,6 +133,22 @@ export default function Test() {
             </form>
             </dialog>
 
+            <dialog id="my_modal_2" className="modal">
+            <form method="dialog" className="modal-box">
+            <div className='flex flex-col items-center'>
+                <div className='font-semibold mb-5'>session</div>
+                <div className='flex flex-row justify-between w-60 mb-4'>
+                    <div>{DateTime.fromISO(displayData.day).toFormat("ccc, MMMM d")}</div>
+                    <div>{displayData.value} hours</div>
+                </div>
+                <div className='border my-2 w-60 p-2'>{displayData.notes}</div>
+            
+            </div>
+                <div className="modal-action">
+                <button className="btn btn-ghost">Close</button>
+                </div>
+            </form>
+            </dialog>
 
                 </div>
         
