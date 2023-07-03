@@ -2,160 +2,8 @@ import { ResponsiveTimeRange } from '@nivo/calendar'
 import { DateTime } from 'luxon';
 import { useState, useEffect } from 'react';
 import { db } from "./firebase.js";
-import { getCountFromServer, collection, query, getDocs, orderBy, limit } from 'firebase/firestore';
+import { getCountFromServer, collection, query, getDocs, orderBy, limit, addDoc } from 'firebase/firestore';
 
-const data = [
-    {
-        day: "2023-06-01",
-        value: 1,
-        notes: "Finish blog post on travelai project, post to linkedin, adplist mentorship session, updates to personal website"
-      },
-      {
-        day: "2023-06-02",
-        value: 2,
-        notes: "Work with impulse dev tool, styling updates to reactions journal and self empathy app"
-      },
-      {
-        day: "2023-06-03",
-        value: 1,
-        notes: "Personal site Astro development. Styling updates"
-      },
-      {
-        day: "2023-06-04",
-        value: 2,
-        notes: "ReactionsJournal refactoring. React router NavLink isActive conditional rendering"
-      },
-      {
-        day: "2023-06-05",
-        value: 1,
-        notes: "ReactionsJournal navlink style updates. Started fast.ai intro course"
-      },
-      {
-        day: "2023-06-06",
-        value: 1,
-        notes: "ReactionsJournal bug fixes, style updates. Web dev meetup"
-      },
-      {
-        day: "2023-06-07",
-        value: 3,
-        notes: "Finished first session of fast.ai course. Completed microgreen classifier project. Implemented routes and controllers for openairfit express project"
-      },
-      {
-        day: "2023-06-08",
-        value: 2,
-        notes: "Openairfit express views development, fast.ai course"
-      },
-      {
-        day: "2023-06-09",
-        value: 2,
-        notes: "Fast.ai lesson 2"
-      },
-      {
-        day: "2023-06-10",
-        value: 3,
-        notes: "Fine-tuned and deployed CloudAtlas ML model"
-      },
-      {
-        day: "2023-06-11",
-        value: 2,
-        notes: "Review CloudAtlas project and write blog post"
-      },
-      {
-        day: "2023-06-12",
-        value: 1,
-        notes: "Initialize CloudAtlas gui. Set up react vite tailwind netlify"
-      },
-      {
-        day: "2023-06-13",
-        value: 1,
-        notes: "Image loader component and styling for CloudAtlas"
-      },
-      {
-        day: "2023-06-14",
-        value: 2,
-        notes: "Pushed CloudAtlas mvp. Watched fast.ai lesson 3"
-      },
-      {
-        day: "2023-06-15",
-        value: 1,
-        notes: "CloudAtlas styling, read fast.ai lesson 3 chapter"
-      },
-      {
-        day: "2023-06-16",
-        value: 2,
-        notes: "Wrote blog post on JSON from GPT. Refactored skiptorecipe"
-      },
-      {
-        day: "2023-06-17",
-        value: 1,
-        notes: "Updated personal site styling"
-      },
-      {
-        day: "2023-06-18",
-        value: 2,
-        notes: "Fast.ai lesson 0. Scrimba AI course"
-      },
-      {
-        day: "2023-06-19",
-        value: 2,
-        notes: "Add createImage feature to skiptorecipe. Deeplearning.ai langchain short course"
-      },
-      {
-        day: "2023-06-20",
-        value: 1,
-        notes: "Deeplearning.ai short course on langchain"
-      },
-      {
-        day: "2023-06-21",
-        value: 2,
-        notes: "Langchain development, web dev meetup"
-      },
-      {
-        day: "2023-06-22",
-        value: 2,
-        notes: "Chatbot dev with scrimba"
-      },
-      {
-        day: "2023-06-23",
-        value: 2,
-        notes: "Fine-tune chatbot with openai api"
-      },
-      {
-        day: "2023-06-24",
-        value: 2,
-        notes: "Fast.ai lesson 0. Scrimba AI course"
-      },
-      {
-        day: "2023-06-25",
-        value: 2,
-        notes: "Add createImage feature to skiptorecipe. Deeplearning.ai langchain short course"
-      },
-      {
-        day: "2023-06-26",
-        value: 1,
-        notes: "Deeplearning.ai short course on langchain"
-      },
-      {
-        day: "2023-06-27",
-        value: 2,
-        notes: "Langchain development, web dev meetup"
-      },
-      {
-        day: "2023-06-28",
-        value: 2,
-        notes: "Chatbot dev with scrimba"
-      },
-      {
-        day: "2023-06-29",
-        value: 2,
-        notes: "Fine-tune chatbot with openai api"
-      },
-      {
-        day: "2023-06-30",
-        value: 2,
-        notes: "Fine-tune chatbot with openai api"
-      }
-    ]
 
 // get the first and last day of the month for start and end dates
 const dt = DateTime.now()
@@ -172,53 +20,52 @@ export default function Test() {
     const [inputNotes, setInputNotes] = useState("")
     const [totalCount, setTotalCount] = useState(0)
 
+    async function getCount() {
+        const logRef = collection(db, "log");
+        const snapshot = await getCountFromServer(logRef);
+        const totalCount = snapshot.data().count;
+        setTotalCount(totalCount);
+      }
 
+    async function fetchData() {
+        console.log("fetching data")
+        const logRef = collection(db, "log");
+        const q = query(logRef, orderBy("day", "desc"), limit(dt.day))
+        const QuerySnapshot = await getDocs(q);
+
+        const qSnapshotArray = QuerySnapshot.docs.map((doc) => doc.data());
+        setLogData(qSnapshotArray);
+    }
 
     useEffect(() => {
-        async function getCount() {
-          const logRef = collection(db, "log");
-          const snapshot = await getCountFromServer(logRef);
-          const totalCount = snapshot.data().count;
-          setTotalCount(totalCount);
-        }
         getCount();
-      }, []);
+    }, []);
 
 
-      useEffect(() => {
-        async function fetchData() {
-            console.log("fetching data")
-            const logRef = collection(db, "log");
-            const q = query(logRef, orderBy("day", "desc"), limit(dt.day))
-            const QuerySnapshot = await getDocs(q);
-
-            const qSnapshotArray = QuerySnapshot.docs.map((doc) => doc.data());
-            setLogData(qSnapshotArray);
-
-            // qSnapshot.forEach((doc) => {
-            //     console.log(doc.id, " => ", doc.data());
-            //   });
-        }
-            
+    useEffect(() => {    
         fetchData();
-        },[]);
+    },[]);
         
-
-
-    function addEntry() {
-        setLogData([
-          ...logData,
-          {
+    async function addEntry() {
+        if (hours === 0) {
+        return;
+        }
+        try {
+        await addDoc(collection(db, "log"), {
             day: inputDate,
             value: inputHours,
             notes: inputNotes,
-          }
-        ]);
-        //  MOVE THESE VALUES INTO A USEEFFECT
+        });
+        console.log("Firestore database updated successful");
+        } catch (error) {
+        console.error("Error updating Firestore database:", error);
+        } finally {
         setInputHours(0)
         setInputNotes("")
-      }
-
+        getCount()
+        fetchData()
+        }
+    }
 
     return (
         <div className='h-full w-full flex flex-col items-center'>
