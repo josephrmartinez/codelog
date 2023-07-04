@@ -137,9 +137,12 @@ export default function App() {
             <form method="dialog" className="modal-box">
             <div className='flex flex-col items-center'>
                 <div className='font-semibold mb-5'>{DateTime.fromISO(displayData.day).toFormat("ccc, MMMM d")}</div>
+                {displayData.value > 0 &&
+                <>
                 <div className='mb-5'>{displayData.value} hours</div>
                 <div className='border my-2 w-60 p-2'>{displayData.notes}</div>
-            
+                </>
+                }
             </div>
                 <div className="modal-action">
                 <button className="btn btn-ghost">Close</button>
