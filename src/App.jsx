@@ -1,105 +1,153 @@
-// import { useEffect, useState } from 'react'
-// import { format, parseISO } from 'date-fns'
-// import './App.css'
-// import { app, db } from "./Firebase";
-// import { getDocs, query, orderBy, limit, doc, setDoc, addDoc, collection, getCountFromServer } from "firebase/firestore";
-// import { DateTime } from 'luxon';
+import { ResponsiveTimeRange } from '@nivo/calendar'
+import { DateTime } from 'luxon';
+import { useState, useEffect } from 'react';
+import { db } from "./firebase.js";
+import { getCountFromServer, collection, query, getDocs, orderBy, limit, addDoc } from 'firebase/firestore';
 
 
+// get the first and last day of the month for start and end dates
+const dt = DateTime.now()
+const currentMonth = DateTime.local().month;
+const nextMonth = DateTime.local().set({ month: currentMonth + 1 });
 
-// function App() {
-//   const [studyDate, setStudyDate] = useState(DateTime.now().toFormat("yyyy'-'LL'-'dd"));
-//   const [hours, setHours] = useState(0);
-//   const [notes, setNotes] = useState("");
-//   const [totalCount, setTotalCount] = useState(0);
-//   const [log, setLog] = useState([]);
 
-// // Initialize Firebase logRef
-//   const logRef = collection(db, "log")
-  
+export default function App() {
+    const [logData, setLogData] = useState([])
+    const [firstDay, setFirstDay] = useState(dt.startOf('month').toFormat("yyyy'-'LL'-'dd"))
+    const [lastDay, setLastDay] = useState(nextMonth.toFormat("yyyy'-'LL'-'dd"))
+    const [inputDate, setInputDate] = useState(dt.toFormat("yyyy'-'LL'-'dd"))
+    const [inputHours, setInputHours] = useState(0)
+    const [inputNotes, setInputNotes] = useState("")
+    const [totalCount, setTotalCount] = useState(0)
+    const [displayData, setDisplayData] = useState({})
 
-//   useEffect(() => {
-//     const fetchLogData = async () => {
-//       const q = query(logRef, orderBy("date", "desc"), limit(12))
-//       const qSnapshot = await getDocs(q);
+    async function getCount() {
+        const logRef = collection(db, "log");
+        const snapshot = await getCountFromServer(logRef);
+        const totalCount = snapshot.data().count;
+        setTotalCount(totalCount);
+      }
 
-//       const logData = qSnapshot.docs.reverse().map((doc) => {
-//         const data = doc.data();
-//         let op;
-//         if (data.hours < 1) {
-//           op = 'border-green-600 opacity-80  from-green-300 to-green-600';
-//         } else if (data.hours >= 1 && data.hours <= 1.5) {
-//           op = 'border-green-700 opacity-90 from-green-400 to-green-700';
-//         } else if (data.hours > 1.5 && data.hours <= 2) {
-//           op = 'border-green-800 from-green-500 to-green-800';
-//         } else {
-//           op = 'border-green-900 from-green-700 to-green-900';
-//         }
-//         return {
-//           id: doc.id,
-//           data,
-//           opacity: op,
-//         };
-//       });
+    async function fetchData() {
+        console.log("fetching data")
+        const logRef = collection(db, "log");
+        const q = query(logRef, orderBy("day", "desc"), limit(dt.day))
+        const QuerySnapshot = await getDocs(q);
 
-//       return logData;
-//     };
+        const qSnapshotArray = QuerySnapshot.docs.map((doc) => doc.data());
+        setLogData(qSnapshotArray);
+    }
 
-//     const fetchLogDataAndCount = async () => {
-//       const snapshot = await getCountFromServer(logRef);
-//       const totalCount = snapshot.data().count;
-//       setTotalCount(totalCount);
+    useEffect(() => {
+        getCount();
+    }, []);
 
-//       const logData = await fetchLogData();
-//       setLog(logData);
-//     };
-//     fetchLogDataAndCount();
-//   }, []);
 
-// const logItems = log.map((item) => (
-//   <div
-//     key={item.id}
-//     className={`${item.opacity} bg-gradient-to-br border rounded-md shadow-lg`}
-//     onClick={() => console.log(typeof item.data.date)}
-//     title={`${format(parseISO(item.data.date), "EEEE, MMMM do")} - ${item.data.hours} hours`}
-//   >
-//   </div>
-// ));
+    useEffect(() => {    
+        fetchData();
+    },[]);
+        
+    async function addEntry() {
+        if (hours === 0) {
+        return;
+        }
+        try {
+        await addDoc(collection(db, "log"), {
+            day: inputDate,
+            value: inputHours,
+            notes: inputNotes,
+        });
+        console.log("Firestore database updated successful");
+        } catch (error) {
+        console.error("Error updating Firestore database:", error);
+        } finally {
+        setInputHours(0)
+        setInputNotes("")
+        getCount()
+        fetchData()
+        }
+    }
 
-// async function addEntry() {
-//   if (hours === 0) {
-//     return;
-//   }
+    return (
+        <div className='h-full w-full flex flex-col items-center'>
+            <div className='font-bold text-xl mt-12'>{totalCount} days of code</div>
+            <div className='w-80 h-80 flex flex-col items-center'>
+            <ResponsiveTimeRange
+                    data={logData}
+                    from={firstDay}
+                    to={lastDay}
+                    align='center'
+                    margin={{top: -40, }}
+                    emptyColor="#eeeeee"
+                    dayRadius={100}
+                    colors={[ '#C6F6D5', '#9AE6B4', '#48BB78', '#2F855A' ]}
+                    weekdayTicks={[]}
+                    dayBorderWidth={6}
+                    direction='vertical'
+                    dayBorderColor="#ffffff"
+                    tooltip={() => null}
+                    onClick={(day, event) => {setDisplayData(day); window.my_modal_2.showModal() }}  
+                />
+            </div>
 
-//   try {
-//     await addDoc(collection(db, "log"), {
-//       date: studyDate,
-//       hours: hours,
-//       notes: notes,
-//     });
+            <div
+            className="btn btn-ghost text-3xl my-4 text-gray-400"
+            onClick={() => window.my_modal_1.showModal()}>
+            +</div>
 
-//     console.log("Firestore database updated successful");
-//     setNotes("");
-//     setHours(0);
-//     fetchLogDataAndCount()
-//   } catch (error) {
-//     console.error("Error updating Firestore database:", error);
-//   }
-// }
 
-//   return (
-//     <>
-//       <div className='mb-6 font-light text-lg'>{totalCount} days of code</div>
-//       <div className='flex flex-col items-center'>
-//       <div className='grid grid-cols-7 grid-rows-[repeat(11,_minmax(0,_1fr))] grid-flow-row w-80 h-[32rem] gap-2'>
-//           {logItems}
-    
-          
+            <dialog id="my_modal_1" className="modal">
+            <form method="dialog" className="modal-box">
+            <div className='flex flex-col items-center'>
+            <div className='font-semibold mb-5'>log session</div>
+            <div className='flex flex-row '><input
+                type="date"
+                name="date"
+                id="date"
+                autoFocus={false}
+                value={inputDate}
+                onChange={(e) => setInputDate(e.target.value)}
+                className='border p-2' />
+            
+            <input
+                type="number"
+                name="hours"
+                autoFocus={true}
+                placeholder="hours"
+                id="hours"
+                value={inputHours}
+                onChange={(e) => setInputHours(e.target.value)}
+                className='border p-2 w-20 ml-2' />
+            </div>
+            <textarea
+                placeholder="notes"
+                className='border my-2 w-60 p-2'
+                value={inputNotes}
+                onChange={(e) => setInputNotes(e.target.value)}/>
+            
+            </div>
+                <div className="modal-action">
+                <button className="btn btn-ghost">Close</button>
+                <button className="btn btn-outline" onClick={() => addEntry()}>Submit</button>
+                </div>
+            </form>
+            </dialog>
 
-//       </div>
-//       </div>
-//     </>
-//   )
-// }
+            <dialog id="my_modal_2" className="modal">
+            <form method="dialog" className="modal-box">
+            <div className='flex flex-col items-center'>
+                <div className='font-semibold mb-5'>{DateTime.fromISO(displayData.day).toFormat("ccc, MMMM d")}</div>
+                <div className='mb-5'>{displayData.value} hours</div>
+                <div className='border my-2 w-60 p-2'>{displayData.notes}</div>
+            
+            </div>
+                <div className="modal-action">
+                <button className="btn btn-ghost">Close</button>
+                </div>
+            </form>
+            </dialog>
 
-// export default App
+                </div>
+        
+    )
+}
