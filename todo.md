@@ -1,1 +1,2 @@
-- Finalize design and layout
+- Implement method to browse into previous months
+- Implement backend connection to google sheets
