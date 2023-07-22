@@ -14,7 +14,7 @@ const nextMonth = DateTime.local().set({ month: currentMonth + 1 });
 export default function App() {
     const [logData, setLogData] = useState([])
     const [firstDay, setFirstDay] = useState(dt.startOf('month').toFormat("yyyy'-'LL'-'dd"))
-    const [lastDay, setLastDay] = useState(nextMonth.toFormat("yyyy'-'LL'-'dd"))
+    const [lastDay, setLastDay] = useState(nextMonth.startOf('month').toFormat("yyyy'-'LL'-'dd"))
     const [inputDate, setInputDate] = useState(dt.toFormat("yyyy'-'LL'-'dd"))
     const [inputHours, setInputHours] = useState(0)
     const [inputNotes, setInputNotes] = useState("")
@@ -36,6 +36,10 @@ export default function App() {
 
         const qSnapshotArray = QuerySnapshot.docs.map((doc) => doc.data());
         setLogData(qSnapshotArray);
+        console.log(firstDay)
+        console.log(lastDay)
+        console.log(currentMonth)
+        console.log(nextMonth)
     }
 
     useEffect(() => {
